@@ -11,7 +11,7 @@
             "3 ovos",
             "1 colher de sopa de fermento em pó"
         ],
-        "modo_de_preparo": "Misture a farinha, o açúcar e o chocolate em uma tigela. Adicione os ovos, o óleo e o leite e mexa bem. Por último, adicione o fermento. Despeje a massa em uma forma untada e leve ao forno pré-aquecido a 180°C por cerca de 40 minutos."
+        "modoPreparo": "Misture a farinha, o açúcar e o chocolate em uma tigela. Adicione os ovos, o óleo e o leite e mexa bem. Por último, adicione o fermento. Despeje a massa em uma forma untada e leve ao forno pré-aquecido a 180°C por cerca de 40 minutos."
     },
     {
         "id": 2,
@@ -25,7 +25,7 @@
             "1 xícara de requeijão cremoso",
             "Sal e pimenta a gosto"
         ],
-        "modo_de_preparo": "Cozinhe o frango, desfie e tempere com sal e pimenta. Em um refratário, monte a lasanha alternando camadas de massa, frango, molho de tomate, queijo e presunto. Finalize com queijo por cima. Leve ao forno a 200°C por 30 minutos."
+        "modoPreparo": "Cozinhe o frango, desfie e tempere com sal e pimenta. Em um refratário, monte a lasanha alternando camadas de massa, frango, molho de tomate, queijo e presunto. Finalize com queijo por cima. Leve ao forno a 200°C por 30 minutos."
     },
     {
         "id": 3,
@@ -40,6 +40,6 @@
             "Orégano a gosto",
             "Sal a gosto"
         ],
-        "modo_de_preparo": "Em uma tigela grande, misture os tomates, pepino, cebola e azeitonas. Adicione o queijo feta. Tempere com azeite, orégano e sal a gosto. Misture bem e sirva imediatamente."
+        "modoPreparo": "Em uma tigela grande, misture os tomates, pepino, cebola e azeitonas. Adicione o queijo feta. Tempere com azeite, orégano e sal a gosto. Misture bem e sirva imediatamente."
     }
 ]

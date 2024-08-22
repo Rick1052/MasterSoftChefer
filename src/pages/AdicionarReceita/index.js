@@ -1,66 +1,56 @@
 import React, { useState } from 'react';
 import api from '../../service/api';
 
-const AdicionarReceita = () => {
-  const [titulo, setTitulo] = useState('');
-  const [ingredientes, setIngredientes] = useState('');
-  const [modoDePreparo, setModoDePreparo] = useState('');
-
-  const [post, setPost] = useState({
-    titulo1: '',
-    ingredientes1: '',
-    modoDePreparo1: ''
+const MeuComponente = () => {
+  const [dados, setDados] = useState({
+    titulo: '',
+    ingrediente: '',
+    modoPreparo: ''
   });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    setPost({ titulo1: titulo, ingredientes1: ingredientes, modoDePreparo1: modoDePreparo });
-
-    console.log(post)
-
-    console.log(titulo)
-
-    api.post('/receitas.json', post)
-
-    setPost({
-      titulo1: '',
-      ingredientes1: '',
-      modoDePreparo1: ''
+  const handleChange = (e) => {
+    setDados({
+      ...dados,
+      [e.target.name]: e.target.value
     });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await api.post('/receitas.json', dados);
+      console.log('Resposta da API:', response.data);
+    } catch (error) {
+      console.error('Erro na requisição:', error);
+    }
+  };
+
   return (
-    <div>
-      <h1>Adicionar Receita</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Título:</label>
-          <input
-            type="text"
-            value={titulo}
-            onChange={(e) => setTitulo(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Ingredientes (separados por vírgula):</label>
-          <input
-            type="text"
-            value={ingredientes}
-            onChange={(e) => setIngredientes(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Modo de Preparo:</label>
-          <textarea
-            value={modoDePreparo}
-            onChange={(e) => setModoDePreparo(e.target.value)}
-          ></textarea>
-        </div>
-        <button type="submit">Adicionar Receita</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="titulo"
+        value={dados.titulo}
+        onChange={handleChange}
+        placeholder="Titulo"
+      />
+      <input
+        type="text"
+        name="ingrediente"
+        value={dados.ingrediente}
+        onChange={handleChange}
+        placeholder="Ingrediente"
+      />
+      <input
+        type="text"
+        name="modoPreparo"
+        value={dados.modoPreparo}
+        onChange={handleChange}
+        placeholder="Modo de Preparo"
+      />
+      <button type="submit">Enviar</button>
+    </form>
   );
 };
 
-export default AdicionarReceita;
+export default MeuComponente;

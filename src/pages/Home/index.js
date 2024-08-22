@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import MeuModal from '../../components/AdicionarReceita';
+
 import api from '../../service/api';
 
 const ReceitasList = () => {
@@ -16,6 +18,10 @@ const ReceitasList = () => {
             });
     }, []);
 
+    if (!receitas) {
+        return <h1>Carregando...</h1>;
+    }
+
     return (
         <div>
             <h1>Lista de Receitas</h1>
@@ -23,10 +29,11 @@ const ReceitasList = () => {
                 {receitas.map(receita => (
                     <li key={receita.id}>
                         <h2>{receita.titulo}</h2>
-                        <p>{receita.modo_de_preparo}</p>
+                        <p>{receita.modoPreparo}</p>
                     </li>
                 ))}
             </ul>
+            <MeuModal />
         </div>
     );
 };
