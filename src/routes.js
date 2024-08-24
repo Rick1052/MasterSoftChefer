@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
-import AdicionarReceita from './pages/AdicionarReceita';
+import Receitas from './pages/Receitas';
 
-function RoutesApp(){
-    return(
+function RoutesApp() {
+    return (
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={<Home/>}/>
-                <Route path='/adicionar' element={<AdicionarReceita/>}/>
+                <Route path='/' element={<Home />} />
+                <Route path='/receitas/:id' element={<Receitas />} />
             </Routes>
         </BrowserRouter>
     );

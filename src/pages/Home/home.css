@@ -1,0 +1,27 @@
+.list-rec a{
+    text-decoration: none;
+    color: #fefefe;
+    font-size: 1.3vw;
+}
+
+.list-rec li{
+    list-style: none;
+    padding: 5px;
+    margin-top: 2px;
+}
+
+.list-rec li:nth-child(odd){
+    background-image: linear-gradient(#492749, #703c70);
+}
+
+.list-rec li:nth-child(even){
+    background-image: linear-gradient(#aa7daa, #e2a4e2);
+}
+
+.list-rec li:nth-child(even) a{
+    color: #161616;
+}
+
+.list-rec li a:hover{
+    font-weight: 500;
+}
