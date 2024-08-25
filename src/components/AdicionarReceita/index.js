@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import api from '../../service/api';
 
+import './addReceita.css';
+
 const AddReceita = () => {
     const [showModal, setShowModal] = useState(false);
     const [titulo, setTitulo] = useState('');
@@ -60,7 +62,7 @@ const AddReceita = () => {
 
     return (
         <div>
-            <button className="btn btn-primary" onClick={toggleModal}>
+            <button className="btn btn-primary btn-modal" onClick={toggleModal}>
                 Adicionar Receita
             </button>
 

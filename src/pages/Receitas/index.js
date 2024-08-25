@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
 function Receitas() {
@@ -30,9 +30,19 @@ function Receitas() {
     return (
         <div className='container'>
             <h1>{receita.titulo}</h1>
-            <p>{receita.ingredientes + ""}</p>
+            <ul>
+                {receita.ingredientes.map((ingrediente, index) => (
+                    <li key={index}>
+                        {ingrediente}
+                        <br />
+                    </li>
+                ))}
+            </ul>
             <p>{receita.modoPreparo}</p>
-            {/* Outros detalhes da receita */}
+
+            <div className='d-flex justify-content-end'>
+                <button className='btn btn-secondary'><Link to="/">Voltar</Link></button>
+            </div>
         </div>
     );
 }

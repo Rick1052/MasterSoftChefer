@@ -43,68 +43,81 @@
     "modoPreparo": "Em uma tigela grande, misture os tomates, pepino, cebola e azeitonas. Adicione o queijo feta. Tempere com azeite, orégano e sal a gosto. Misture bem e sirva imediatamente."
   },
   {
-    "titulo": "asd",
+    "id": 4,
+    "titulo": "Espaguete Carbonara",
     "ingredientes": [
-      "asda"
+      "200g de espaguete",
+      "100g de bacon em cubos",
+      "2 ovos",
+      "50g de queijo parmesão ralado",
+      "2 dentes de alho picados",
+      "Sal a gosto",
+      "Pimenta-do-reino a gosto"
     ],
-    "modoPreparo": "sd",
-    "id": 4
+    "modoPreparo": "Cozinhe o espaguete conforme as instruções da embalagem. Em uma frigideira, frite o bacon até ficar crocante e adicione o alho. Em uma tigela, bata os ovos e misture com o queijo parmesão. Escorra o espaguete e misture com o bacon e alho. Retire do fogo e adicione a mistura de ovos e queijo, mexendo rapidamente. Tempere com sal e pimenta a gosto. Sirva imediatamente."
   },
   {
-    "titulo": "gluyg",
+    "id": 5,
+    "titulo": "Frango ao Curry",
     "ingredientes": [
-      "kjhç"
+      "500g de peito de frango em cubos",
+      "1 cebola picada",
+      "2 dentes de alho picados",
+      "1 colher de sopa de curry em pó",
+      "200ml de leite de coco",
+      "1 tomate picado",
+      "2 colheres de sopa de óleo",
+      "Sal a gosto",
+      "Pimenta-do-reino a gosto"
     ],
-    "modoPreparo": "puih",
-    "id": 5
+    "modoPreparo": "Em uma panela, aqueça o óleo e refogue a cebola e o alho até ficarem macios. Adicione o frango e cozinhe até dourar. Misture o curry em pó e o tomate. Adicione o leite de coco e deixe cozinhar em fogo baixo por cerca de 20 minutos, até o frango estar cozido e o molho espesso. Tempere com sal e pimenta a gosto. Sirva com arroz branco."
   },
   {
-    "titulo": "asd",
+    "id": 6,
+    "titulo": "Tacos de Carne Moída",
     "ingredientes": [
-      "asd"
+      "500g de carne moída",
+      "1 cebola picada",
+      "2 dentes de alho picados",
+      "1 pacote de tempero para tacos",
+      "1/2 xícara de água",
+      "Tortilhas de milho",
+      "Queijo ralado",
+      "Alface picada",
+      "Tomate picado",
+      "Sour cream a gosto"
     ],
-    "modoPreparo": "asd",
-    "id": 6
+    "modoPreparo": "Em uma frigideira, refogue a cebola e o alho até ficarem macios. Adicione a carne moída e cozinhe até dourar. Misture o tempero para tacos e a água. Cozinhe por mais 5 minutos. Aqueça as tortilhas conforme as instruções da embalagem. Recheie as tortilhas com a carne, queijo, alface, tomate e sour cream. Sirva imediatamente."
   },
   {
-    "titulo": "Patrick Viado ",
+    "id": 7,
+    "titulo": "Sopa de Abóbora",
     "ingredientes": [
-      "pau na bbunda",
-      "pinto murcho",
-      "sem muirw"
+      "500g de abóbora em cubos",
+      "1 cebola picada",
+      "2 dentes de alho picados",
+      "1 litro de caldo de galinha",
+      "1 colher de sopa de azeite",
+      "1 colher de chá de cominho",
+      "Sal a gosto",
+      "Pimenta-do-reino a gosto",
+      "Salsinha picada para decorar"
     ],
-    "modoPreparo": "Pegue o pinto mucho, e enfio o pau na bunda",
-    "id": 7
+    "modoPreparo": "Aqueça o azeite em uma panela grande e refogue a cebola e o alho até ficarem macios. Adicione a abóbora e refogue por mais alguns minutos. Adicione o caldo de galinha e o cominho. Cozinhe até a abóbora estar macia, cerca de 20 minutos. Bata a sopa no liquidificador até obter uma textura cremosa. Tempere com sal e pimenta a gosto. Sirva quente, decorado com salsinha picada."
   },
   {
-    "titulo": "Maça do Amor",
+    "id": 8,
+    "titulo": "Quiche de Alho-Poró",
     "ingredientes": [
-      "acolher de maça"
+      "1 massa de torta pronta",
+      "2 talos de alho-poró fatiados",
+      "150g de queijo gruyère ralado",
+      "200ml de creme de leite",
+      "3 ovos",
+      "Sal a gosto",
+      "Pimenta-do-reino a gosto",
+      "1 colher de sopa de azeite"
     ],
-    "modoPreparo": "ado aado ",
-    "id": 8
-  },
-  {
-    "titulo": "Ao potencia",
-    "ingredientes": [
-      "caldo ",
-      "esteoe"
-    ],
-    "modoPreparo": "asda",
-    "id": 9
-  },
-  {
-    "titulo": "dasd",
-    "ingredientes": [
-      "asd",
-      "asd",
-      "asd",
-      "asd",
-      "asd",
-      "asda",
-      "asd"
-    ],
-    "modoPreparo": "asdas",
-    "id": 10
-  }
+    "modoPreparo": "Pré-aqueça o forno a 180°C. Aqueça o azeite em uma frigideira e refogue o alho-poró até ficar macio. Em uma tigela, misture os ovos, o creme de leite, o queijo gruyère, o sal e a pimenta. Adicione o alho-poró refogado. Forre uma forma com a massa de torta e despeje a mistura de ovos e alho-poró. Asse por cerca de 30 minutos, ou até que o centro esteja firme e a superfície dourada. Sirva morno ou frio."
+  }  
 ]

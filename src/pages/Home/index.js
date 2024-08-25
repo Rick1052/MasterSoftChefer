@@ -34,6 +34,7 @@ const ReceitasList = () => {
   return (
     <div className='container'>
 
+
       <div className='d-flex justify-content-end'>
         <AddReceita />
       </div>
@@ -45,6 +46,7 @@ const ReceitasList = () => {
           </li>
         ))}
       </ul>
+
     </div>
   );
 };
