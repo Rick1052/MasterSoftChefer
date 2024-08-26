@@ -3,14 +3,13 @@ const path = require('path');
 
 // Função handler para Netlify Functions
 module.exports.handler = async (event, context) => {
-  const filePath = path.join(__dirname, '..', 'public', 'data.json'); // Caminho para o arquivo JSON
+  const filePath = path.join(__dirname, '..', 'public', 'data.json'); // Ajuste o caminho conforme necessário
 
   try {
     // Ler o arquivo JSON
     const data = fs.readFileSync(filePath, 'utf8');
     let receitas = JSON.parse(data);
 
-    // Lidar com GET
     if (event.httpMethod === 'GET') {
       const { id } = event.queryStringParameters || {};
 
@@ -40,15 +39,12 @@ module.exports.handler = async (event, context) => {
       };
     }
 
-    // Lidar com POST
     if (event.httpMethod === 'POST') {
       const novaReceita = JSON.parse(event.body);
 
-      // Adiciona nova receita
       novaReceita.id = receitas.length + 1; // Gerar ID único
       receitas.push(novaReceita);
 
-      // Atualiza o arquivo JSON
       fs.writeFileSync(filePath, JSON.stringify(receitas, null, 2));
 
       return {
@@ -58,7 +54,6 @@ module.exports.handler = async (event, context) => {
       };
     }
 
-    // Método não permitido
     return {
       statusCode: 405,
       headers: { 'Content-Type': 'application/json' },
