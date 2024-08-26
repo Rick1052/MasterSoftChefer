@@ -2,12 +2,12 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports.handler = async (event, context) => {
-  const filePath = path.join(__dirname, '..', 'public', 'data.json'); // Ajuste o caminho conforme necessário
+  const filePath = path.join(__dirname, '..', 'public', 'data.json'); // Ajuste conforme necessário
+  let receitas;
 
   try {
-    // Ler o arquivo JSON
     const data = fs.readFileSync(filePath, 'utf8');
-    const receitas = JSON.parse(data);
+    receitas = JSON.parse(data);
 
     if (event.httpMethod === 'GET') {
       const { id } = event.queryStringParameters || {};
