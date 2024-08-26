@@ -62,7 +62,7 @@ const AddReceita = () => {
 
     return (
         <div>
-            <button className="btn btn-primary btn-modal" onClick={toggleModal}>
+            <button className="btn btn-primary" id="btn-modal" onClick={toggleModal}>
                 Adicionar Receita
             </button>
 

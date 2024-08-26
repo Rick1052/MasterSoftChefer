@@ -32,3 +32,12 @@
 .footer a:hover{
     font-weight: 400;
 }
+
+@media (width <= 1300px){
+    .footer h3{
+        font-size: 1.3rem;
+    }
+    .footer img{
+        width: 20rem;
+    }
+}

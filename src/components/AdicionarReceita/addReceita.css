@@ -1,5 +1,12 @@
-.btn-modal{
+#btn-modal{
     width: 20vw;
     font-size: 1.5vw;
     margin-bottom: 20px;
+}
+
+@media (width <= 768px) {
+    #btn-modal{
+        width: 30vw;
+        font-size: 2.5vw;
+    }
 }

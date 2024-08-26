@@ -18,3 +18,10 @@
     font-size: 4vw;
     color: #fefefe;
 }
+
+@media (width <= 1300px){
+    .cabecalho h1{
+        font-size: 2rem;
+        text-align: center;
+    }
+}

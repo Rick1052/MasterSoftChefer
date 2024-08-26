@@ -27,3 +27,21 @@
 .list-rec li a:hover{
     font-weight: 500;
 }
+
+@media (width <= 1200px) {
+    .list-rec a{
+        font-size: 2.5vw;
+    }
+}
+
+@media (width <= 768px) {
+    .list-rec a{
+        font-size: 3vw;
+    }
+}
+
+@media (width <= 576px) {
+    .list-rec a{
+        font-size: 4vw;
+    }
+}
