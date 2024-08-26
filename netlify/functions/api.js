@@ -1,88 +1,55 @@
-const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const cors = require('cors');
-const { createServer, IncomingMessage, request, ServerResponse } = require('http');
-const app = express();
 
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-const filePath = path.join(__dirname, '..', 'data.json'); // Caminho para o arquivo JSON
-
-let receitas = [];
-fs.readFile(filePath, 'utf8', (err, data) => {
-  if (err) {
-    console.error('Erro ao ler o arquivo:', err);
-  } else {
-    try {
-      receitas = JSON.parse(data);
-    } catch (parseError) {
-      console.error('Erro ao processar o JSON:', parseError);
-    }
-  }
-});
-
-app.get('/api/receitas', (req, res) => {
-  res.json(receitas);
-});
-
-app.get('/api/receitas/:id', (req, res) => {
-  const id = parseInt(req.params.id);
-  const receita = receitas.find(item => item.id === id);
-
-  if (!receita) {
-    return res.status(404).json({ error: 'Receita não encontrada' });
-  }
-
-  res.json(receita);
-});
-
-app.post('/api/receitas', (req, res) => {
-  const novaReceita = req.body;
-
-  if (!novaReceita.nome || !novaReceita.ingredientes) {
-    return res.status(400).json({ error: 'Dados inválidos' });
-  }
-
-  novaReceita.id = receitas.length + 1;
-  receitas.push(novaReceita);
-
-  fs.writeFile(filePath, JSON.stringify(receitas, null, 2), (err) => {
-    if (err) {
-      console.error('Erro ao salvar o arquivo:', err);
-      res.status(500).send('Erro ao salvar o arquivo');
-      return;
-    }
-    res.status(201).json(novaReceita);
-  });
-});
-
-// Adaptar para função serverless
+// Função handler para Netlify Functions
 module.exports.handler = async (event, context) => {
-  return new Promise((resolve, reject) => {
-    createServer(app).listen(0, 'localhost', () => {
-      const port = server.address().port;
-      request({
-        hostname: 'localhost',
-        port,
-        path: event.rawUrl,
-        method: event.httpMethod,
-        headers: event.headers,
-      }, (response) => {
-        let body = '';
-        response.on('data', (chunk) => {
-          body += chunk;
-        });
-        response.on('end', () => {
-          resolve({
-            statusCode: response.statusCode,
-            headers: response.headers,
-            body,
-          });
-        });
-      }).end(event.body);
-    });
-  });
+  const filePath = path.join(__dirname, '..', 'public', 'data.json'); // Caminho para o arquivo JSON
+
+  try {
+    // Ler o arquivo JSON
+    const data = fs.readFileSync(filePath, 'utf8');
+    let receitas = JSON.parse(data);
+
+    // Lidar com GET
+    if (event.httpMethod === 'GET') {
+      // Retorna todas as receitas
+      return {
+        statusCode: 200,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(receitas),
+      };
+    }
+
+    // Lidar com POST
+    if (event.httpMethod === 'POST') {
+      const novaReceita = JSON.parse(event.body);
+
+      // Adiciona nova receita
+      novaReceita.id = receitas.length + 1; // Gerar ID único
+      receitas.push(novaReceita);
+
+      // Atualiza o arquivo JSON
+      fs.writeFileSync(filePath, JSON.stringify(receitas, null, 2));
+
+      return {
+        statusCode: 201,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(novaReceita),
+      };
+    }
+
+    // Método não permitido
+    return {
+      statusCode: 405,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Método não permitido' }),
+    };
+  } catch (error) {
+    console.error('Erro:', error);
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Erro interno do servidor' }),
+    };
+  }
 };
