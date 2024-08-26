@@ -28,7 +28,7 @@ const AddReceita = () => {
                 ingredientes: ingredientes.filter(ing => ing.trim() !== ''), 
                 modoPreparo
             };
-            const response = await api.post('/data.json', novaReceita);
+            const response = await api.post('data.json', novaReceita);
             setSuccess('Receita adicionada com sucesso!');
             console.log('Receita adicionada: ', response.data);
             setTitulo('');

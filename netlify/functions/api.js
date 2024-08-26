@@ -12,7 +12,27 @@ module.exports.handler = async (event, context) => {
 
     // Lidar com GET
     if (event.httpMethod === 'GET') {
-      // Retorna todas as receitas
+      const { id } = event.queryStringParameters || {};
+
+      if (id) {
+        // Buscar receita específica pelo ID
+        const receita = receitas.find(item => item.id === parseInt(id, 10));
+        if (!receita) {
+          return {
+            statusCode: 404,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ error: 'Receita não encontrada' }),
+          };
+        }
+
+        return {
+          statusCode: 200,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(receita),
+        };
+      }
+
+      // Retorna todas as receitas se nenhum ID for especificado
       return {
         statusCode: 200,
         headers: { 'Content-Type': 'application/json' },
