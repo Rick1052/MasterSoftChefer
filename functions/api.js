@@ -1,20 +1,18 @@
 const fs = require('fs');
 const path = require('path');
 
-// Função handler para Netlify Functions
 module.exports.handler = async (event, context) => {
   const filePath = path.join(__dirname, '..', 'public', 'data.json'); // Ajuste o caminho conforme necessário
 
   try {
     // Ler o arquivo JSON
     const data = fs.readFileSync(filePath, 'utf8');
-    let receitas = JSON.parse(data);
+    const receitas = JSON.parse(data);
 
     if (event.httpMethod === 'GET') {
       const { id } = event.queryStringParameters || {};
 
       if (id) {
-        // Buscar receita específica pelo ID
         const receita = receitas.find(item => item.id === parseInt(id, 10));
         if (!receita) {
           return {
@@ -31,7 +29,6 @@ module.exports.handler = async (event, context) => {
         };
       }
 
-      // Retorna todas as receitas se nenhum ID for especificado
       return {
         statusCode: 200,
         headers: { 'Content-Type': 'application/json' },
@@ -41,8 +38,7 @@ module.exports.handler = async (event, context) => {
 
     if (event.httpMethod === 'POST') {
       const novaReceita = JSON.parse(event.body);
-
-      novaReceita.id = receitas.length + 1; // Gerar ID único
+      novaReceita.id = receitas.length + 1;
       receitas.push(novaReceita);
 
       fs.writeFileSync(filePath, JSON.stringify(receitas, null, 2));

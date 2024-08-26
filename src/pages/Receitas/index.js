@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import axios from 'axios';
+
+import api from '../../service/api';
 
 function Receitas() {
     const { id } = useParams(); // Obtém o id da URL
     const [receita, setReceita] = useState(null);
     const [error, setError] = useState(null); // Estado para capturar erros
 
+    console.log(id);
+
     useEffect(() => {
         // Fazendo a requisição GET para buscar a receita específica
-        axios.get(`http://localhost:4000/data.json/${id}`)
+        api.get(`functions/api?id=${id}`)
             .then(response => {
                 setReceita(response.data);
             })

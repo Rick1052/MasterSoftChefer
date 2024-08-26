@@ -15,7 +15,7 @@ const ReceitasList = () => {
     // Função para buscar dados
     const fetchReceitas = async () => {
       try {
-        const response = await api.get('data.json'); // Faz a requisição GET
+        const response = await api.get('functions/api'); // Faz a requisição GET
         setReceitas(response.data); // Atualiza o estado com os dados recebidos
       } catch (error) {
         setError('Erro ao buscar receitas');
