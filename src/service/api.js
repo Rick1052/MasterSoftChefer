@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://master-soft-chef.netlify.app/', // URL base para sua API
+    baseURL: 'https://master-soft-chef.netlify.app/',
     headers: {
         'Content-Type': 'application/json',
     },
